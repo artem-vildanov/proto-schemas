@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v5.29.3
-// source: events/review.proto
+// source: events/review/review.proto
 
 package review
 
@@ -31,7 +31,7 @@ type ReviewCreatedEvent struct {
 
 func (x *ReviewCreatedEvent) Reset() {
 	*x = ReviewCreatedEvent{}
-	mi := &file_events_review_proto_msgTypes[0]
+	mi := &file_events_review_review_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -43,7 +43,7 @@ func (x *ReviewCreatedEvent) String() string {
 func (*ReviewCreatedEvent) ProtoMessage() {}
 
 func (x *ReviewCreatedEvent) ProtoReflect() protoreflect.Message {
-	mi := &file_events_review_proto_msgTypes[0]
+	mi := &file_events_review_review_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -56,7 +56,7 @@ func (x *ReviewCreatedEvent) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ReviewCreatedEvent.ProtoReflect.Descriptor instead.
 func (*ReviewCreatedEvent) Descriptor() ([]byte, []int) {
-	return file_events_review_proto_rawDescGZIP(), []int{0}
+	return file_events_review_review_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *ReviewCreatedEvent) GetIdempotencyKey() string {
@@ -73,32 +73,32 @@ func (x *ReviewCreatedEvent) GetReviewId() int64 {
 	return 0
 }
 
-var File_events_review_proto protoreflect.FileDescriptor
+var File_events_review_review_proto protoreflect.FileDescriptor
 
-const file_events_review_proto_rawDesc = "" +
+const file_events_review_review_proto_rawDesc = "" +
 	"\n" +
-	"\x13events/review.proto\x12\x06review\"Z\n" +
+	"\x1aevents/review/review.proto\x12\x06review\"Z\n" +
 	"\x12ReviewCreatedEvent\x12'\n" +
 	"\x0fidempotency_key\x18\x01 \x01(\tR\x0eidempotencyKey\x12\x1b\n" +
-	"\treview_id\x18\x02 \x01(\x03R\breviewIdB(Z&proto-schemas/gen/events/review;reviewb\x06proto3"
+	"\treview_id\x18\x02 \x01(\x03R\breviewIdBBZ@github.com/artem-vildanov/proto-schemas/gen/events/review;reviewb\x06proto3"
 
 var (
-	file_events_review_proto_rawDescOnce sync.Once
-	file_events_review_proto_rawDescData []byte
+	file_events_review_review_proto_rawDescOnce sync.Once
+	file_events_review_review_proto_rawDescData []byte
 )
 
-func file_events_review_proto_rawDescGZIP() []byte {
-	file_events_review_proto_rawDescOnce.Do(func() {
-		file_events_review_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_events_review_proto_rawDesc), len(file_events_review_proto_rawDesc)))
+func file_events_review_review_proto_rawDescGZIP() []byte {
+	file_events_review_review_proto_rawDescOnce.Do(func() {
+		file_events_review_review_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_events_review_review_proto_rawDesc), len(file_events_review_review_proto_rawDesc)))
 	})
-	return file_events_review_proto_rawDescData
+	return file_events_review_review_proto_rawDescData
 }
 
-var file_events_review_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
-var file_events_review_proto_goTypes = []any{
+var file_events_review_review_proto_msgTypes = make([]protoimpl.MessageInfo, 1)
+var file_events_review_review_proto_goTypes = []any{
 	(*ReviewCreatedEvent)(nil), // 0: review.ReviewCreatedEvent
 }
-var file_events_review_proto_depIdxs = []int32{
+var file_events_review_review_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for method output_type
 	0, // [0:0] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -106,26 +106,26 @@ var file_events_review_proto_depIdxs = []int32{
 	0, // [0:0] is the sub-list for field type_name
 }
 
-func init() { file_events_review_proto_init() }
-func file_events_review_proto_init() {
-	if File_events_review_proto != nil {
+func init() { file_events_review_review_proto_init() }
+func file_events_review_review_proto_init() {
+	if File_events_review_review_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_events_review_proto_rawDesc), len(file_events_review_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_events_review_review_proto_rawDesc), len(file_events_review_review_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   1,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_events_review_proto_goTypes,
-		DependencyIndexes: file_events_review_proto_depIdxs,
-		MessageInfos:      file_events_review_proto_msgTypes,
+		GoTypes:           file_events_review_review_proto_goTypes,
+		DependencyIndexes: file_events_review_review_proto_depIdxs,
+		MessageInfos:      file_events_review_review_proto_msgTypes,
 	}.Build()
-	File_events_review_proto = out.File
-	file_events_review_proto_goTypes = nil
-	file_events_review_proto_depIdxs = nil
+	File_events_review_review_proto = out.File
+	file_events_review_review_proto_goTypes = nil
+	file_events_review_review_proto_depIdxs = nil
 }
