@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package review;
 
-option go_package = "proto-schemas/gen/rpc/review;review";
+option go_package = "github.com/artem-vildanov/proto-schemas/gen/rpc/review;review";
 
 import "google/protobuf/timestamp.proto";
 

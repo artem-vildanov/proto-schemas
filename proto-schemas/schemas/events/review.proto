@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package review;
 
-option go_package = "proto-schemas/gen/events/review;review";
+option go_package = "github.com/artem-vildanov/proto-schemas/gen/events/review;review";
 
 message ReviewCreatedEvent {
 	string idempotency_key = 1;
