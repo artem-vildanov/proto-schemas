@@ -1,6 +1,7 @@
 PROTO_SRC_DIR=schemas
 PROTO_GEN_DIR=gen
 
+
 proto:
 	@rm -R ${PROTO_GEN_DIR}
 	@mkdir -p ${PROTO_GEN_DIR}
