@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package review;
+
+option go_package = "github.com/artem-vildanov/proto-schemas/gen/rpc/review;review";
+
+import "google/protobuf/timestamp.proto";
+
+service ReviewService {
+	rpc CreateReview(CreateReviewRequest) returns (CreateReviewResponse);
+	rpc GetReviewsByIDs(GetReviewsByIDsRequest) returns (GetReviewsByIDsResponse);
+}
+
+message CreateReviewRequest {
+	int64 sender_id = 1;
+	int64 target_id = 2;
+	string comment = 3;
+	int32 rating = 4;
+}
+
+message CreateReviewResponse {
+	bool success = 1;
+	int64 review_id = 2;
+}
+
+message GetReviewsByIDsRequest {
+	repeated int64 review_ids = 1;
+}
+
+message GetReviewsByIDsResponse {
+	repeated Review reviews = 1;
+}
+
+message Review {
+	int64 review_id = 1;
+	int64 sender_id = 2;
+	int64 target_id = 3;
+	string comment = 4;
+	int32 score = 5;
+	google.protobuf.Timestamp created_at = 6;
+}
