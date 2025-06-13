@@ -20,7 +20,7 @@ message CreateReviewRequest {
 
 message CreateReviewResponse {
 	bool success = 1;
-	int64 review_id = 2;
+	string review_id = 2;
 }
 
 message GetReviewsByIDsRequest {

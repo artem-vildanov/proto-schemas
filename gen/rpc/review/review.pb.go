@@ -93,7 +93,7 @@ func (x *CreateReviewRequest) GetRating() int32 {
 type CreateReviewResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Success       bool                   `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
-	ReviewId      int64                  `protobuf:"varint,2,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
+	ReviewId      string                 `protobuf:"bytes,2,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -135,11 +135,11 @@ func (x *CreateReviewResponse) GetSuccess() bool {
 	return false
 }
 
-func (x *CreateReviewResponse) GetReviewId() int64 {
+func (x *CreateReviewResponse) GetReviewId() string {
 	if x != nil {
 		return x.ReviewId
 	}
-	return 0
+	return ""
 }
 
 type GetReviewsByIDsRequest struct {
@@ -326,7 +326,7 @@ const file_rpc_review_review_proto_rawDesc = "" +
 	"\x06rating\x18\x04 \x01(\x05R\x06rating\"M\n" +
 	"\x14CreateReviewResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess\x12\x1b\n" +
-	"\treview_id\x18\x02 \x01(\x03R\breviewId\"7\n" +
+	"\treview_id\x18\x02 \x01(\tR\breviewId\"7\n" +
 	"\x16GetReviewsByIDsRequest\x12\x1d\n" +
 	"\n" +
 	"review_ids\x18\x01 \x03(\tR\treviewIds\"C\n" +
