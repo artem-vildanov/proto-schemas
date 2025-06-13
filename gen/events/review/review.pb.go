@@ -24,7 +24,8 @@ const (
 type ReviewCreatedEvent struct {
 	state          protoimpl.MessageState `protogen:"open.v1"`
 	IdempotencyKey string                 `protobuf:"bytes,1,opt,name=idempotency_key,json=idempotencyKey,proto3" json:"idempotency_key,omitempty"`
-	ReviewId       int64                  `protobuf:"varint,2,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
+	PartitionKey   string                 `protobuf:"bytes,2,opt,name=partition_key,json=partitionKey,proto3" json:"partition_key,omitempty"`
+	ReviewId       string                 `protobuf:"bytes,3,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
 	unknownFields  protoimpl.UnknownFields
 	sizeCache      protoimpl.SizeCache
 }
@@ -66,21 +67,29 @@ func (x *ReviewCreatedEvent) GetIdempotencyKey() string {
 	return ""
 }
 
-func (x *ReviewCreatedEvent) GetReviewId() int64 {
+func (x *ReviewCreatedEvent) GetPartitionKey() string {
+	if x != nil {
+		return x.PartitionKey
+	}
+	return ""
+}
+
+func (x *ReviewCreatedEvent) GetReviewId() string {
 	if x != nil {
 		return x.ReviewId
 	}
-	return 0
+	return ""
 }
 
 var File_events_review_review_proto protoreflect.FileDescriptor
 
 const file_events_review_review_proto_rawDesc = "" +
 	"\n" +
-	"\x1aevents/review/review.proto\x12\x06review\"Z\n" +
+	"\x1aevents/review/review.proto\x12\x06review\"\x7f\n" +
 	"\x12ReviewCreatedEvent\x12'\n" +
-	"\x0fidempotency_key\x18\x01 \x01(\tR\x0eidempotencyKey\x12\x1b\n" +
-	"\treview_id\x18\x02 \x01(\x03R\breviewIdBBZ@github.com/artem-vildanov/proto-schemas/gen/events/review;reviewb\x06proto3"
+	"\x0fidempotency_key\x18\x01 \x01(\tR\x0eidempotencyKey\x12#\n" +
+	"\rpartition_key\x18\x02 \x01(\tR\fpartitionKey\x12\x1b\n" +
+	"\treview_id\x18\x03 \x01(\tR\breviewIdBBZ@github.com/artem-vildanov/proto-schemas/gen/events/review;reviewb\x06proto3"
 
 var (
 	file_events_review_review_proto_rawDescOnce sync.Once

@@ -12,8 +12,8 @@ service ReviewService {
 }
 
 message CreateReviewRequest {
-	int64 sender_id = 1;
-	int64 target_id = 2;
+	string sender_id = 1;
+	string target_id = 2;
 	string comment = 3;
 	int32 rating = 4;
 }
@@ -24,7 +24,7 @@ message CreateReviewResponse {
 }
 
 message GetReviewsByIDsRequest {
-	repeated int64 review_ids = 1;
+	repeated string review_ids = 1;
 }
 
 message GetReviewsByIDsResponse {
@@ -32,9 +32,9 @@ message GetReviewsByIDsResponse {
 }
 
 message Review {
-	int64 review_id = 1;
-	int64 sender_id = 2;
-	int64 target_id = 3;
+	string review_id = 1;
+	string sender_id = 2;
+	string target_id = 3;
 	string comment = 4;
 	int32 score = 5;
 	google.protobuf.Timestamp created_at = 6;

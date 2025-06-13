@@ -24,8 +24,8 @@ const (
 
 type CreateReviewRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	SenderId      int64                  `protobuf:"varint,1,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
-	TargetId      int64                  `protobuf:"varint,2,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
+	SenderId      string                 `protobuf:"bytes,1,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
+	TargetId      string                 `protobuf:"bytes,2,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
 	Comment       string                 `protobuf:"bytes,3,opt,name=comment,proto3" json:"comment,omitempty"`
 	Rating        int32                  `protobuf:"varint,4,opt,name=rating,proto3" json:"rating,omitempty"`
 	unknownFields protoimpl.UnknownFields
@@ -62,18 +62,18 @@ func (*CreateReviewRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_review_review_proto_rawDescGZIP(), []int{0}
 }
 
-func (x *CreateReviewRequest) GetSenderId() int64 {
+func (x *CreateReviewRequest) GetSenderId() string {
 	if x != nil {
 		return x.SenderId
 	}
-	return 0
+	return ""
 }
 
-func (x *CreateReviewRequest) GetTargetId() int64 {
+func (x *CreateReviewRequest) GetTargetId() string {
 	if x != nil {
 		return x.TargetId
 	}
-	return 0
+	return ""
 }
 
 func (x *CreateReviewRequest) GetComment() string {
@@ -144,7 +144,7 @@ func (x *CreateReviewResponse) GetReviewId() int64 {
 
 type GetReviewsByIDsRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ReviewIds     []int64                `protobuf:"varint,1,rep,packed,name=review_ids,json=reviewIds,proto3" json:"review_ids,omitempty"`
+	ReviewIds     []string               `protobuf:"bytes,1,rep,name=review_ids,json=reviewIds,proto3" json:"review_ids,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -179,7 +179,7 @@ func (*GetReviewsByIDsRequest) Descriptor() ([]byte, []int) {
 	return file_rpc_review_review_proto_rawDescGZIP(), []int{2}
 }
 
-func (x *GetReviewsByIDsRequest) GetReviewIds() []int64 {
+func (x *GetReviewsByIDsRequest) GetReviewIds() []string {
 	if x != nil {
 		return x.ReviewIds
 	}
@@ -232,9 +232,9 @@ func (x *GetReviewsByIDsResponse) GetReviews() []*Review {
 
 type Review struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ReviewId      int64                  `protobuf:"varint,1,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
-	SenderId      int64                  `protobuf:"varint,2,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
-	TargetId      int64                  `protobuf:"varint,3,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
+	ReviewId      string                 `protobuf:"bytes,1,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
+	SenderId      string                 `protobuf:"bytes,2,opt,name=sender_id,json=senderId,proto3" json:"sender_id,omitempty"`
+	TargetId      string                 `protobuf:"bytes,3,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
 	Comment       string                 `protobuf:"bytes,4,opt,name=comment,proto3" json:"comment,omitempty"`
 	Score         int32                  `protobuf:"varint,5,opt,name=score,proto3" json:"score,omitempty"`
 	CreatedAt     *timestamppb.Timestamp `protobuf:"bytes,6,opt,name=created_at,json=createdAt,proto3" json:"created_at,omitempty"`
@@ -272,25 +272,25 @@ func (*Review) Descriptor() ([]byte, []int) {
 	return file_rpc_review_review_proto_rawDescGZIP(), []int{4}
 }
 
-func (x *Review) GetReviewId() int64 {
+func (x *Review) GetReviewId() string {
 	if x != nil {
 		return x.ReviewId
 	}
-	return 0
+	return ""
 }
 
-func (x *Review) GetSenderId() int64 {
+func (x *Review) GetSenderId() string {
 	if x != nil {
 		return x.SenderId
 	}
-	return 0
+	return ""
 }
 
-func (x *Review) GetTargetId() int64 {
+func (x *Review) GetTargetId() string {
 	if x != nil {
 		return x.TargetId
 	}
-	return 0
+	return ""
 }
 
 func (x *Review) GetComment() string {
@@ -320,8 +320,8 @@ const file_rpc_review_review_proto_rawDesc = "" +
 	"\n" +
 	"\x17rpc/review/review.proto\x12\x06review\x1a\x1fgoogle/protobuf/timestamp.proto\"\x81\x01\n" +
 	"\x13CreateReviewRequest\x12\x1b\n" +
-	"\tsender_id\x18\x01 \x01(\x03R\bsenderId\x12\x1b\n" +
-	"\ttarget_id\x18\x02 \x01(\x03R\btargetId\x12\x18\n" +
+	"\tsender_id\x18\x01 \x01(\tR\bsenderId\x12\x1b\n" +
+	"\ttarget_id\x18\x02 \x01(\tR\btargetId\x12\x18\n" +
 	"\acomment\x18\x03 \x01(\tR\acomment\x12\x16\n" +
 	"\x06rating\x18\x04 \x01(\x05R\x06rating\"M\n" +
 	"\x14CreateReviewResponse\x12\x18\n" +
@@ -329,13 +329,13 @@ const file_rpc_review_review_proto_rawDesc = "" +
 	"\treview_id\x18\x02 \x01(\x03R\breviewId\"7\n" +
 	"\x16GetReviewsByIDsRequest\x12\x1d\n" +
 	"\n" +
-	"review_ids\x18\x01 \x03(\x03R\treviewIds\"C\n" +
+	"review_ids\x18\x01 \x03(\tR\treviewIds\"C\n" +
 	"\x17GetReviewsByIDsResponse\x12(\n" +
 	"\areviews\x18\x01 \x03(\v2\x0e.review.ReviewR\areviews\"\xca\x01\n" +
 	"\x06Review\x12\x1b\n" +
-	"\treview_id\x18\x01 \x01(\x03R\breviewId\x12\x1b\n" +
-	"\tsender_id\x18\x02 \x01(\x03R\bsenderId\x12\x1b\n" +
-	"\ttarget_id\x18\x03 \x01(\x03R\btargetId\x12\x18\n" +
+	"\treview_id\x18\x01 \x01(\tR\breviewId\x12\x1b\n" +
+	"\tsender_id\x18\x02 \x01(\tR\bsenderId\x12\x1b\n" +
+	"\ttarget_id\x18\x03 \x01(\tR\btargetId\x12\x18\n" +
 	"\acomment\x18\x04 \x01(\tR\acomment\x12\x14\n" +
 	"\x05score\x18\x05 \x01(\x05R\x05score\x129\n" +
 	"\n" +
