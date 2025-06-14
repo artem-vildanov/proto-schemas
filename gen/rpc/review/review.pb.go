@@ -230,154 +230,6 @@ func (x *GetReviewsByIDsResponse) GetReviews() []*Review {
 	return nil
 }
 
-type GetRatingsByIDsRequest struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetIds     []string               `protobuf:"bytes,1,rep,name=target_ids,json=targetIds,proto3" json:"target_ids,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRatingsByIDsRequest) Reset() {
-	*x = GetRatingsByIDsRequest{}
-	mi := &file_rpc_review_review_proto_msgTypes[4]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRatingsByIDsRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRatingsByIDsRequest) ProtoMessage() {}
-
-func (x *GetRatingsByIDsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_rpc_review_review_proto_msgTypes[4]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRatingsByIDsRequest.ProtoReflect.Descriptor instead.
-func (*GetRatingsByIDsRequest) Descriptor() ([]byte, []int) {
-	return file_rpc_review_review_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *GetRatingsByIDsRequest) GetTargetIds() []string {
-	if x != nil {
-		return x.TargetIds
-	}
-	return nil
-}
-
-type GetRatingsByIDsResponse struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	Ratings       []*Rating              `protobuf:"bytes,1,rep,name=ratings,proto3" json:"ratings,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *GetRatingsByIDsResponse) Reset() {
-	*x = GetRatingsByIDsResponse{}
-	mi := &file_rpc_review_review_proto_msgTypes[5]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *GetRatingsByIDsResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetRatingsByIDsResponse) ProtoMessage() {}
-
-func (x *GetRatingsByIDsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_rpc_review_review_proto_msgTypes[5]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetRatingsByIDsResponse.ProtoReflect.Descriptor instead.
-func (*GetRatingsByIDsResponse) Descriptor() ([]byte, []int) {
-	return file_rpc_review_review_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetRatingsByIDsResponse) GetRatings() []*Rating {
-	if x != nil {
-		return x.Ratings
-	}
-	return nil
-}
-
-type Rating struct {
-	state         protoimpl.MessageState `protogen:"open.v1"`
-	TargetId      string                 `protobuf:"bytes,1,opt,name=target_id,json=targetId,proto3" json:"target_id,omitempty"`
-	Score         int32                  `protobuf:"varint,2,opt,name=score,proto3" json:"score,omitempty"`
-	ReviewsCount  int32                  `protobuf:"varint,3,opt,name=reviews_count,json=reviewsCount,proto3" json:"reviews_count,omitempty"`
-	unknownFields protoimpl.UnknownFields
-	sizeCache     protoimpl.SizeCache
-}
-
-func (x *Rating) Reset() {
-	*x = Rating{}
-	mi := &file_rpc_review_review_proto_msgTypes[6]
-	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-	ms.StoreMessageInfo(mi)
-}
-
-func (x *Rating) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Rating) ProtoMessage() {}
-
-func (x *Rating) ProtoReflect() protoreflect.Message {
-	mi := &file_rpc_review_review_proto_msgTypes[6]
-	if x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Rating.ProtoReflect.Descriptor instead.
-func (*Rating) Descriptor() ([]byte, []int) {
-	return file_rpc_review_review_proto_rawDescGZIP(), []int{6}
-}
-
-func (x *Rating) GetTargetId() string {
-	if x != nil {
-		return x.TargetId
-	}
-	return ""
-}
-
-func (x *Rating) GetScore() int32 {
-	if x != nil {
-		return x.Score
-	}
-	return 0
-}
-
-func (x *Rating) GetReviewsCount() int32 {
-	if x != nil {
-		return x.ReviewsCount
-	}
-	return 0
-}
-
 type Review struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	ReviewId      string                 `protobuf:"bytes,1,opt,name=review_id,json=reviewId,proto3" json:"review_id,omitempty"`
@@ -392,7 +244,7 @@ type Review struct {
 
 func (x *Review) Reset() {
 	*x = Review{}
-	mi := &file_rpc_review_review_proto_msgTypes[7]
+	mi := &file_rpc_review_review_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -404,7 +256,7 @@ func (x *Review) String() string {
 func (*Review) ProtoMessage() {}
 
 func (x *Review) ProtoReflect() protoreflect.Message {
-	mi := &file_rpc_review_review_proto_msgTypes[7]
+	mi := &file_rpc_review_review_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -417,7 +269,7 @@ func (x *Review) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Review.ProtoReflect.Descriptor instead.
 func (*Review) Descriptor() ([]byte, []int) {
-	return file_rpc_review_review_proto_rawDescGZIP(), []int{7}
+	return file_rpc_review_review_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Review) GetReviewId() string {
@@ -479,16 +331,7 @@ const file_rpc_review_review_proto_rawDesc = "" +
 	"\n" +
 	"review_ids\x18\x01 \x03(\tR\treviewIds\"C\n" +
 	"\x17GetReviewsByIDsResponse\x12(\n" +
-	"\areviews\x18\x01 \x03(\v2\x0e.review.ReviewR\areviews\"7\n" +
-	"\x16GetRatingsByIDsRequest\x12\x1d\n" +
-	"\n" +
-	"target_ids\x18\x01 \x03(\tR\ttargetIds\"C\n" +
-	"\x17GetRatingsByIDsResponse\x12(\n" +
-	"\aratings\x18\x01 \x03(\v2\x0e.review.RatingR\aratings\"`\n" +
-	"\x06Rating\x12\x1b\n" +
-	"\ttarget_id\x18\x01 \x01(\tR\btargetId\x12\x14\n" +
-	"\x05score\x18\x02 \x01(\x05R\x05score\x12#\n" +
-	"\rreviews_count\x18\x03 \x01(\x05R\freviewsCount\"\xca\x01\n" +
+	"\areviews\x18\x01 \x03(\v2\x0e.review.ReviewR\areviews\"\xca\x01\n" +
 	"\x06Review\x12\x1b\n" +
 	"\treview_id\x18\x01 \x01(\tR\breviewId\x12\x1b\n" +
 	"\tsender_id\x18\x02 \x01(\tR\bsenderId\x12\x1b\n" +
@@ -496,11 +339,10 @@ const file_rpc_review_review_proto_rawDesc = "" +
 	"\acomment\x18\x04 \x01(\tR\acomment\x12\x14\n" +
 	"\x05score\x18\x05 \x01(\x05R\x05score\x129\n" +
 	"\n" +
-	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt2\x82\x02\n" +
+	"created_at\x18\x06 \x01(\v2\x1a.google.protobuf.TimestampR\tcreatedAt2\xae\x01\n" +
 	"\rReviewService\x12I\n" +
 	"\fCreateReview\x12\x1b.review.CreateReviewRequest\x1a\x1c.review.CreateReviewResponse\x12R\n" +
-	"\x0fGetReviewsByIDs\x12\x1e.review.GetReviewsByIDsRequest\x1a\x1f.review.GetReviewsByIDsResponse\x12R\n" +
-	"\x0fGetRatingsByIDs\x12\x1e.review.GetRatingsByIDsRequest\x1a\x1f.review.GetRatingsByIDsResponseB?Z=github.com/artem-vildanov/proto-schemas/gen/rpc/review;reviewb\x06proto3"
+	"\x0fGetReviewsByIDs\x12\x1e.review.GetReviewsByIDsRequest\x1a\x1f.review.GetReviewsByIDsResponseB?Z=github.com/artem-vildanov/proto-schemas/gen/rpc/review;reviewb\x06proto3"
 
 var (
 	file_rpc_review_review_proto_rawDescOnce sync.Once
@@ -514,33 +356,27 @@ func file_rpc_review_review_proto_rawDescGZIP() []byte {
 	return file_rpc_review_review_proto_rawDescData
 }
 
-var file_rpc_review_review_proto_msgTypes = make([]protoimpl.MessageInfo, 8)
+var file_rpc_review_review_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_rpc_review_review_proto_goTypes = []any{
 	(*CreateReviewRequest)(nil),     // 0: review.CreateReviewRequest
 	(*CreateReviewResponse)(nil),    // 1: review.CreateReviewResponse
 	(*GetReviewsByIDsRequest)(nil),  // 2: review.GetReviewsByIDsRequest
 	(*GetReviewsByIDsResponse)(nil), // 3: review.GetReviewsByIDsResponse
-	(*GetRatingsByIDsRequest)(nil),  // 4: review.GetRatingsByIDsRequest
-	(*GetRatingsByIDsResponse)(nil), // 5: review.GetRatingsByIDsResponse
-	(*Rating)(nil),                  // 6: review.Rating
-	(*Review)(nil),                  // 7: review.Review
-	(*timestamppb.Timestamp)(nil),   // 8: google.protobuf.Timestamp
+	(*Review)(nil),                  // 4: review.Review
+	(*timestamppb.Timestamp)(nil),   // 5: google.protobuf.Timestamp
 }
 var file_rpc_review_review_proto_depIdxs = []int32{
-	7, // 0: review.GetReviewsByIDsResponse.reviews:type_name -> review.Review
-	6, // 1: review.GetRatingsByIDsResponse.ratings:type_name -> review.Rating
-	8, // 2: review.Review.created_at:type_name -> google.protobuf.Timestamp
-	0, // 3: review.ReviewService.CreateReview:input_type -> review.CreateReviewRequest
-	2, // 4: review.ReviewService.GetReviewsByIDs:input_type -> review.GetReviewsByIDsRequest
-	4, // 5: review.ReviewService.GetRatingsByIDs:input_type -> review.GetRatingsByIDsRequest
-	1, // 6: review.ReviewService.CreateReview:output_type -> review.CreateReviewResponse
-	3, // 7: review.ReviewService.GetReviewsByIDs:output_type -> review.GetReviewsByIDsResponse
-	5, // 8: review.ReviewService.GetRatingsByIDs:output_type -> review.GetRatingsByIDsResponse
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	4, // 0: review.GetReviewsByIDsResponse.reviews:type_name -> review.Review
+	5, // 1: review.Review.created_at:type_name -> google.protobuf.Timestamp
+	0, // 2: review.ReviewService.CreateReview:input_type -> review.CreateReviewRequest
+	2, // 3: review.ReviewService.GetReviewsByIDs:input_type -> review.GetReviewsByIDsRequest
+	1, // 4: review.ReviewService.CreateReview:output_type -> review.CreateReviewResponse
+	3, // 5: review.ReviewService.GetReviewsByIDs:output_type -> review.GetReviewsByIDsResponse
+	4, // [4:6] is the sub-list for method output_type
+	2, // [2:4] is the sub-list for method input_type
+	2, // [2:2] is the sub-list for extension type_name
+	2, // [2:2] is the sub-list for extension extendee
+	0, // [0:2] is the sub-list for field type_name
 }
 
 func init() { file_rpc_review_review_proto_init() }
@@ -554,7 +390,7 @@ func file_rpc_review_review_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_rpc_review_review_proto_rawDesc), len(file_rpc_review_review_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   8,
+			NumMessages:   5,
 			NumExtensions: 0,
 			NumServices:   1,
 		},

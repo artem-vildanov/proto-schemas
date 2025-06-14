@@ -21,7 +21,6 @@ const _ = grpc.SupportPackageIsVersion9
 const (
 	ReviewService_CreateReview_FullMethodName    = "/review.ReviewService/CreateReview"
 	ReviewService_GetReviewsByIDs_FullMethodName = "/review.ReviewService/GetReviewsByIDs"
-	ReviewService_GetRatingsByIDs_FullMethodName = "/review.ReviewService/GetRatingsByIDs"
 )
 
 // ReviewServiceClient is the client API for ReviewService service.
@@ -30,7 +29,6 @@ const (
 type ReviewServiceClient interface {
 	CreateReview(ctx context.Context, in *CreateReviewRequest, opts ...grpc.CallOption) (*CreateReviewResponse, error)
 	GetReviewsByIDs(ctx context.Context, in *GetReviewsByIDsRequest, opts ...grpc.CallOption) (*GetReviewsByIDsResponse, error)
-	GetRatingsByIDs(ctx context.Context, in *GetRatingsByIDsRequest, opts ...grpc.CallOption) (*GetRatingsByIDsResponse, error)
 }
 
 type reviewServiceClient struct {
@@ -61,23 +59,12 @@ func (c *reviewServiceClient) GetReviewsByIDs(ctx context.Context, in *GetReview
 	return out, nil
 }
 
-func (c *reviewServiceClient) GetRatingsByIDs(ctx context.Context, in *GetRatingsByIDsRequest, opts ...grpc.CallOption) (*GetRatingsByIDsResponse, error) {
-	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(GetRatingsByIDsResponse)
-	err := c.cc.Invoke(ctx, ReviewService_GetRatingsByIDs_FullMethodName, in, out, cOpts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 // ReviewServiceServer is the server API for ReviewService service.
 // All implementations must embed UnimplementedReviewServiceServer
 // for forward compatibility.
 type ReviewServiceServer interface {
 	CreateReview(context.Context, *CreateReviewRequest) (*CreateReviewResponse, error)
 	GetReviewsByIDs(context.Context, *GetReviewsByIDsRequest) (*GetReviewsByIDsResponse, error)
-	GetRatingsByIDs(context.Context, *GetRatingsByIDsRequest) (*GetRatingsByIDsResponse, error)
 	mustEmbedUnimplementedReviewServiceServer()
 }
 
@@ -93,9 +80,6 @@ func (UnimplementedReviewServiceServer) CreateReview(context.Context, *CreateRev
 }
 func (UnimplementedReviewServiceServer) GetReviewsByIDs(context.Context, *GetReviewsByIDsRequest) (*GetReviewsByIDsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetReviewsByIDs not implemented")
-}
-func (UnimplementedReviewServiceServer) GetRatingsByIDs(context.Context, *GetRatingsByIDsRequest) (*GetRatingsByIDsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetRatingsByIDs not implemented")
 }
 func (UnimplementedReviewServiceServer) mustEmbedUnimplementedReviewServiceServer() {}
 func (UnimplementedReviewServiceServer) testEmbeddedByValue()                       {}
@@ -154,24 +138,6 @@ func _ReviewService_GetReviewsByIDs_Handler(srv interface{}, ctx context.Context
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ReviewService_GetRatingsByIDs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetRatingsByIDsRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(ReviewServiceServer).GetRatingsByIDs(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: ReviewService_GetRatingsByIDs_FullMethodName,
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ReviewServiceServer).GetRatingsByIDs(ctx, req.(*GetRatingsByIDsRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 // ReviewService_ServiceDesc is the grpc.ServiceDesc for ReviewService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -186,10 +152,6 @@ var ReviewService_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetReviewsByIDs",
 			Handler:    _ReviewService_GetReviewsByIDs_Handler,
-		},
-		{
-			MethodName: "GetRatingsByIDs",
-			Handler:    _ReviewService_GetRatingsByIDs_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
