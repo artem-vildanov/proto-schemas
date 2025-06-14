@@ -9,7 +9,6 @@ import "google/protobuf/timestamp.proto";
 service ReviewService {
 	rpc CreateReview(CreateReviewRequest) returns (CreateReviewResponse);
 	rpc GetReviewsByIDs(GetReviewsByIDsRequest) returns (GetReviewsByIDsResponse);
-	rpc GetRatingsByIDs(GetRatingsByIDsRequest) returns (GetRatingsByIDsResponse);
 }
 
 message CreateReviewRequest {
@@ -30,20 +29,6 @@ message GetReviewsByIDsRequest {
 
 message GetReviewsByIDsResponse {
 	repeated Review reviews = 1;
-}
-
-message GetRatingsByIDsRequest {
-	repeated string target_ids = 1;
-}
-
-message GetRatingsByIDsResponse {
-	repeated Rating ratings = 1;
-}
-
-message Rating {
-	string target_id = 1;
-	int32 score = 2;
-	int32 reviews_count = 3;
 }
 
 message Review {
